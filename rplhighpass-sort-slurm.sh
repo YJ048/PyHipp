@@ -5,17 +5,6 @@
 #SBATCH --time=24:00:00   # walltime
 #SBATCH --ntasks=1   # number of processor cores (i.e. tasks)
 #SBATCH --nodes=1   # number of nodes
-<<<<<<< HEAD
-#SBATCH --cpus-per-task=1      # number of processors per task
-#SBATCH -J "rplhighpasssort"   # job name
-
-## /SBATCH -p general # partition (queue)
-#SBATCH -o rplhighpasssort-slurm.%N.%j.out # STDOUT
-#SBATCH -e rplhighpasssort-slurm.%N.%j.err # STDERR
-
-# LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
-
-=======
 #SBATCH --cpus-per-task=1	# number of processors per task
 #SBATCH -J "rplhps"   # job name
 
@@ -24,7 +13,6 @@
 #SBATCH -e rplhps-slurm.%N.%j.err # STDERR
 
 # LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
->>>>>>> upstream/main
 /data/miniconda3/bin/conda init
 source ~/.bashrc
 envarg=`/data/src/PyHipp/envlist.py`
@@ -39,9 +27,5 @@ from PyHipp import export_mountain_cells; \
 export_mountain_cells.export_mountain_cells(); \
 print(time.localtime());"
 
-<<<<<<< HEAD
-conda deactivate
-=======
 conda deactivate 
->>>>>>> upstream/main
 /data/src/PyHipp/envlist.py $envarg
