@@ -5,11 +5,7 @@
 #SBATCH --time=24:00:00   # walltime
 #SBATCH --ntasks=1   # number of processor cores (i.e. tasks)
 #SBATCH --nodes=1   # number of nodes
-<<<<<<< HEAD
-#SBATCH --cpus-per-task=5      # number of processors per task
-=======
 #SBATCH --cpus-per-task=5	# number of processors per task
->>>>>>> upstream/main
 #SBATCH -J "rs3a"   # job name
 
 ## /SBATCH -p general # partition (queue)
@@ -23,19 +19,8 @@ import os; \
 import time; \
 t0 = time.time(); \
 print(time.localtime()); \
-<<<<<<< HEAD
-DPT.objects.processDirs(dirs=None, objtype=pyh.RPLSplit, channel=[*range(65,97)], SkipHPC=False, HPCScriptsDir = '/data/src/PyHipp/', SkipLFP=False, SkipHighPass=False, SkipSort=False); \
-DPT.objects.processDirs(dirs=['sessioneye/array03','session01/array03'], cmd='import PyHipp as pyh; import DataProcessingTools as DPT; DPT.objects.processDirs(None, pyh.RPLLFP, saveLevel=1); DPT.objects.processDirs(None, pyh.RPLHighPass, saveLevel=1);'); \
-os.chdir('session01/array03'); \
-DPT.objects.processDirs(level='channel', cmd='import PyHipp as pyh; from PyHipp import mountain_batch; mountain_batch.mountain_batch(); from PyHipp import export_mountain_cells; export_mountain_cells.export_mountain_cells();'); \
-print(time.localtime()); \
-print(time.time()-t0);"
-
-aws sns publish --topic-arn arn:aws:sns:ap-southeast-1:514297294947:awsnotify --message "RPLS3aJobDone"
-=======
 DPT.objects.processDirs(dirs=None, objtype=pyh.RPLSplit, channel=[*range(65,97)], SkipHPC=False, HPCScriptsDir='/data/src/PyHipp/', SkipLFP=False, SkipHighPass=False, SkipSort=False); \
 print(time.localtime()); \
 print(time.time()-t0);"
 
-aws sns publish --topic-arn arn:aws:sns:ap-southeast-1:018084650241:awsnotify --message "RPLS3JobDone"
->>>>>>> upstream/main
+aws sns publish --topic-arn arn:aws:sns:ap-southeast-1:514297294947:awsnotify --message "RPLS3aJobDone"
